@@ -1,0 +1,15 @@
+pimcore:
+    staticroutes:
+        definitions:
+            fc65c20f-7d17-4ed5-be52-4aba72581f9a:
+                name: search
+                pattern: /\/search1/
+                reverse: /search1
+                controller: 'App\Controller\ContentController::searchAction'
+                variables: ''
+                defaults: ''
+                siteId: {  }
+                methods: {  }
+                priority: 1
+                creationDate: 1659963944
+                modificationDate: 1659964081

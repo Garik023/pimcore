@@ -1,0 +1,14 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h2>cotent search</h2>
+
+    {% for i in pimcore_iterate_block(pimcore_block('contentblock')) %}
+        <h2>{{ pimcore_input('subline') }}</h2>
+        {{ pimcore_wysiwyg('content') }}
+    {% endfor %}
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+{% endblock %}
