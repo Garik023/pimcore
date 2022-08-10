@@ -9,7 +9,9 @@
  * - name [input]
  * - description [wysiwyg]
  * - picture [image]
- * - category [manyToOneRelation]
+ * - name_2 [indexFieldSelectionField]
+ * - category [manyToManyObjectRelation]
+ * - filterDefinition [manyToOneRelation]
  */
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
@@ -18,7 +20,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Product',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1660051891,
+   'modificationDate' => 1660140299,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -179,9 +181,77 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'uploadPath' => '',
           )),
           4 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
+          Pimcore\Bundle\EcommerceFrameworkBundle\CoreExtensions\ClassDefinition\IndexFieldSelectionField::__set_state(array(
+             'name' => 'name_2',
+             'title' => 'Name _2',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'datatype' => 'data',
+             'fieldtype' => 'indexFieldSelectionField',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'width' => '',
+             'height' => '',
+             'maxLength' => NULL,
+             'showCharCount' => NULL,
+             'excludeFromSearchIndex' => false,
+             'specificPriceField' => false,
+             'showAllFields' => false,
+             'considerTenants' => false,
+          )),
+          5 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
              'name' => 'category',
              'title' => 'Category',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'datatype' => 'data',
+             'fieldtype' => 'manyToManyObjectRelation',
+             'relationType' => true,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'classes' => 
+            array (
+              0 => 
+              array (
+                'classes' => 'category',
+              ),
+            ),
+             'pathFormatterClass' => '',
+             'width' => '',
+             'height' => '',
+             'maxItems' => NULL,
+             'visibleFields' => 'name,id,fullpath',
+             'allowToCreateNewObject' => true,
+             'optimizedAdminLoading' => false,
+             'enableTextSelection' => false,
+             'visibleFieldDefinitions' => 
+            array (
+            ),
+          )),
+          6 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
+             'name' => 'filterDefinition',
+             'title' => 'Filter Definition',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -202,11 +272,11 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
             array (
               0 => 
               array (
-                'classes' => 'category',
+                'classes' => 'FilterDefinition',
               ),
             ),
              'pathFormatterClass' => '',
-             'width' => '',
+             'width' => 800,
              'assetUploadPath' => '',
              'objectsAllowed' => true,
              'assetsAllowed' => false,

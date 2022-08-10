@@ -3,17 +3,6 @@
 {% block content %}
     <h2>cotent defoult</h2>
 
-    {% set navStartNode = document.getProperty('navigationRoot') %}
-    {% if not navStartNode is instanceof('\\Pimcore\\Model\\Document\\Page') %}
-        {% set navStartNode = pimcore_document(1) %}
-    {% endif %}
-    {% set mainNavigation = pimcore_build_nav({
-        active: document,
-        root: navStartNode
-    }) %}
-    {{ pimcore_render_nav(mainNavigation) }}
-
-
     {% for i in pimcore_iterate_block(pimcore_block('contentblock')) %}
         <h2>{{ pimcore_input('subline') }}</h2>
         {{ pimcore_wysiwyg('content') }}

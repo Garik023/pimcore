@@ -139,3 +139,58 @@ framework:
 #            main: smtp://user:pass@smtp.example.com:port
 #            pimcore_newsletter: smtp://user:pass@smtp.example.com:port
 
+pimcore_ecommerce_framework:
+    # Default scale used for Decimal objects
+    decimal_scale: 4
+
+    # Configuration of Pimcore backend menu entries
+    pimcore:
+        menu:
+
+            # Enabling/Disabling Pricing Rules menu entry. User specific settings can be done via permissions.
+            pricing_rules:
+                enabled: true
+
+            # Configuring order list menu - enabling/disabling and defining route of order list to inject custom implementations of order backend.
+            order_list:
+                enabled: true
+                route: pimcore_ecommerce_backend_admin-order_list
+                path: null
+
+    # Configuration of e-commerce framework factory
+    factory:
+
+        # Service Id of factory implementation
+        factory_id: Pimcore\Bundle\EcommerceFrameworkBundle\Factory
+
+        # If true the factory will not fall back to the default tenant if a tenant is passed but not existing
+        strict_tenants: false
+
+    # Configuration of environment
+    environment:
+        environment_id: Pimcore\Bundle\EcommerceFrameworkBundle\SessionEnvironment
+        options: [ ]
+
+    # Settings for cart manager
+    cart_manager:
+        tenants:
+            # _defaults will be automatically merged into every tenant and removed afterwards
+            # the result will be a default and a noShipping
+            _defaults:
+                #                cart:
+                #                    factory_id: CartFactoryIdservices:
+                price_calculator:
+                    #                    factory_id: PriceCalculatorFactoryId
+                    factory_options:
+                        foo: bar
+
+            default:
+                price_calculator:
+                    factory_options:
+                        baz: 1234
+
+            noShipping:
+                price_calculator:
+                    factory_options:
+                        baz: 4321
+

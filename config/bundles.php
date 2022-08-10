@@ -1,5 +1,5 @@
 <?php
 
 return [
-    //Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
+//    Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
 ];

@@ -19,6 +19,8 @@ class ContentController extends FrontendController
         $products=new Product\Listing();
         $products=$products->getData();
 
+//        dd($products);
+
         return $this->render('content/product.html.twig',['products'=>$products]);
     }
 

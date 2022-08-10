@@ -5,22 +5,23 @@
  * Variants: no
  *
  * Fields Summary:
- * - tokenId [numeric]
- * - token [input]
- * - voucherSeries [manyToOneRelation]
+ * - provider [input]
+ * - identifier [input]
+ * - profileData [textarea]
+ * - credentials [objectbricks]
  */
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'dao' => NULL,
-   'id' => 'EF_OSVT',
-   'name' => 'OnlineShopVoucherToken',
+   'id' => '5',
+   'name' => 'SsoIdentity',
    'description' => '',
-   'creationDate' => NULL,
-   'modificationDate' => 1659712676,
-   'userOwner' => NULL,
+   'creationDate' => 0,
+   'modificationDate' => 1660119047,
+   'userOwner' => 0,
    'userModification' => 2,
-   'parentClass' => '',
-   'implementsInterfaces' => '',
+   'parentClass' => '\\CustomerManagementFrameworkBundle\\Model\\AbstractSsoIdentity',
+   'implementsInterfaces' => NULL,
    'listingParentClass' => '',
    'useTraits' => '',
    'listingUseTraits' => '',
@@ -40,8 +41,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
      'type' => NULL,
      'region' => NULL,
      'title' => NULL,
-     'width' => 0,
-     'height' => 0,
+     'width' => NULL,
+     'height' => NULL,
      'collapsible' => false,
      'collapsed' => false,
      'bodyStyle' => NULL,
@@ -53,7 +54,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'name' => 'Layout',
          'type' => NULL,
-         'region' => '',
+         'region' => NULL,
          'title' => '',
          'width' => NULL,
          'height' => NULL,
@@ -65,70 +66,13 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
          'children' => 
         array (
           0 => 
-          Pimcore\Model\DataObject\ClassDefinition\Layout\Text::__set_state(array(
-             'name' => 'Layout',
-             'type' => NULL,
-             'region' => NULL,
-             'title' => '',
-             'width' => NULL,
-             'height' => NULL,
-             'collapsible' => false,
-             'collapsed' => false,
-             'bodyStyle' => 'padding: 10px; background-color: #d9edf7; border-color: #bce8f1 !important; color: #31708f;',
-             'datatype' => 'layout',
-             'permissions' => NULL,
-             'children' => 
-            array (
-            ),
-             'locked' => false,
-             'blockedVarsForExport' => 
-            array (
-            ),
-             'fieldtype' => 'text',
-             'html' => '<b>VoucherToken </b>that are actually used with orders.&nbsp;',
-             'renderingClass' => NULL,
-             'renderingData' => NULL,
-             'border' => false,
-          )),
-          1 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
-             'name' => 'tokenId',
-             'title' => 'Token ID',
-             'tooltip' => '',
-             'mandatory' => true,
-             'noteditable' => true,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'datatype' => 'data',
-             'fieldtype' => 'numeric',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => true,
-             'visibleSearch' => true,
-             'blockedVarsForExport' => 
-            array (
-            ),
-             'width' => 500,
-             'defaultValue' => NULL,
-             'integer' => false,
-             'unsigned' => false,
-             'minValue' => NULL,
-             'maxValue' => NULL,
-             'unique' => false,
-             'decimalSize' => NULL,
-             'decimalPrecision' => NULL,
-             'defaultValueGenerator' => '',
-          )),
-          2 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'name' => 'token',
-             'title' => 'Token',
+             'name' => 'provider',
+             'title' => 'Provider',
              'tooltip' => '',
              'mandatory' => true,
              'noteditable' => true,
-             'index' => false,
+             'index' => true,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
@@ -136,61 +80,106 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'fieldtype' => 'input',
              'relationType' => false,
              'invisible' => false,
-             'visibleGridView' => true,
-             'visibleSearch' => true,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
              'blockedVarsForExport' => 
             array (
             ),
-             'width' => 500,
+             'width' => NULL,
              'defaultValue' => NULL,
-             'columnLength' => 255,
+             'columnLength' => 190,
              'regex' => '',
              'regexFlags' => 
             array (
             ),
-             'unique' => false,
-             'showCharCount' => false,
+             'unique' => NULL,
+             'showCharCount' => NULL,
              'defaultValueGenerator' => '',
           )),
-          3 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
-             'name' => 'voucherSeries',
-             'title' => 'Voucher Series',
+          1 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+             'name' => 'identifier',
+             'title' => 'Identifier',
              'tooltip' => '',
              'mandatory' => true,
              'noteditable' => true,
-             'index' => false,
+             'index' => true,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
-             'fieldtype' => 'manyToOneRelation',
-             'relationType' => true,
+             'fieldtype' => 'input',
+             'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
              'blockedVarsForExport' => 
             array (
             ),
-             'classes' => 
-            array (
-              0 => 
-              array (
-                'classes' => 'OnlineShopVoucherSeries',
-              ),
-            ),
-             'pathFormatterClass' => NULL,
-             'width' => 500,
-             'assetUploadPath' => '',
-             'objectsAllowed' => true,
-             'assetsAllowed' => false,
-             'assetTypes' => 
+             'width' => NULL,
+             'defaultValue' => NULL,
+             'columnLength' => 190,
+             'regex' => '',
+             'regexFlags' => 
             array (
             ),
-             'documentsAllowed' => false,
-             'documentTypes' => 
+             'unique' => NULL,
+             'showCharCount' => NULL,
+             'defaultValueGenerator' => '',
+          )),
+          2 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+             'name' => 'profileData',
+             'title' => 'Profile Data',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'datatype' => 'data',
+             'fieldtype' => 'textarea',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
             array (
             ),
+             'width' => '',
+             'height' => '',
+             'maxLength' => NULL,
+             'showCharCount' => NULL,
+             'excludeFromSearchIndex' => false,
+          )),
+          3 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Objectbricks::__set_state(array(
+             'name' => 'credentials',
+             'title' => 'Credentials',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'datatype' => 'data',
+             'fieldtype' => 'objectbricks',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'allowedTypes' => 
+            array (
+              0 => 'OAuth1Token',
+              1 => 'OAuth2Token',
+            ),
+             'maxItems' => NULL,
+             'border' => false,
           )),
         ),
          'locked' => false,
@@ -198,10 +187,10 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
         array (
         ),
          'fieldtype' => 'panel',
-         'layout' => '',
+         'layout' => NULL,
          'border' => false,
          'icon' => NULL,
-         'labelWidth' => 150,
+         'labelWidth' => 100,
          'labelAlign' => 'left',
       )),
     ),
@@ -216,11 +205,11 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
      'labelWidth' => 100,
      'labelAlign' => 'left',
   )),
-   'icon' => '',
-   'previewUrl' => '',
-   'group' => 'E-Commerce',
+   'icon' => '/bundles/pimcoreadmin/img/flat-color-icons/lock.svg',
+   'previewUrl' => NULL,
+   'group' => 'CustomerManagement',
    'showAppLoggerTab' => false,
-   'linkGeneratorReference' => '',
+   'linkGeneratorReference' => NULL,
    'previewGeneratorReference' => NULL,
    'compositeIndices' => 
   array (
@@ -232,20 +221,18 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
     'grid' => 
     array (
       'id' => true,
-      'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => false,
-      'creationDate' => false,
+      'modificationDate' => true,
+      'creationDate' => true,
     ),
     'search' => 
     array (
       'id' => true,
-      'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => false,
-      'creationDate' => false,
+      'modificationDate' => true,
+      'creationDate' => true,
     ),
   ),
    'enableGridLocking' => false,

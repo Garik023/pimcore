@@ -2,27 +2,28 @@
 
 /**
  * Fields Summary:
- * - label [input]
- * - field [indexFieldSelection]
- * - preSelect [input]
- * - scriptPath [input]
+ * - accessToken [textarea]
+ * - tokenType [input]
+ * - expiresAt [input]
+ * - refreshToken [textarea]
+ * - scope [input]
  */
 
-return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
+return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
    'dao' => NULL,
-   'key' => 'FilterInputfield',
-   'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractFilterDefinitionType',
-   'implementsInterfaces' => '',
-   'title' => '',
-   'group' => 'FilterTypes',
+   'key' => 'OAuth2Token',
+   'parentClass' => 'CustomerManagementFrameworkBundle\\Model\\Objectbrick\\AbstractOAuth2Token',
+   'implementsInterfaces' => NULL,
+   'title' => NULL,
+   'group' => NULL,
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'name' => NULL,
      'type' => NULL,
      'region' => NULL,
      'title' => NULL,
-     'width' => 0,
-     'height' => 0,
+     'width' => NULL,
+     'height' => NULL,
      'collapsible' => false,
      'collapsed' => false,
      'bodyStyle' => NULL,
@@ -33,53 +34,22 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
       0 => 
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'name' => 'Layout',
-         'type' => '',
-         'region' => '',
-         'title' => 'Filter Input',
+         'type' => NULL,
+         'region' => NULL,
+         'title' => '',
          'width' => NULL,
          'height' => NULL,
-         'collapsible' => true,
+         'collapsible' => false,
          'collapsed' => false,
          'bodyStyle' => '',
          'datatype' => 'layout',
-         'permissions' => '',
+         'permissions' => NULL,
          'children' => 
         array (
           0 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'name' => 'label',
-             'title' => 'Label',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => '',
-             'locked' => false,
-             'style' => '',
-             'permissions' => '',
-             'datatype' => 'data',
-             'fieldtype' => 'input',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-             'blockedVarsForExport' => 
-            array (
-            ),
-             'width' => 300,
-             'defaultValue' => NULL,
-             'columnLength' => '255',
-             'regex' => '',
-             'regexFlags' => 
-            array (
-            ),
-             'unique' => NULL,
-             'showCharCount' => NULL,
-             'defaultValueGenerator' => '',
-          )),
-          1 => 
-          Pimcore\Bundle\EcommerceFrameworkBundle\CoreExtensions\ClassDefinition\IndexFieldSelection::__set_state(array(
-             'name' => 'field',
-             'title' => 'Field',
+          Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+             'name' => 'accessToken',
+             'title' => 'accessToken',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -88,7 +58,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
-             'fieldtype' => 'indexFieldSelection',
+             'fieldtype' => 'textarea',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
@@ -96,40 +66,23 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'blockedVarsForExport' => 
             array (
             ),
-             'queryColumnType' => 
-            array (
-              'tenant' => 'varchar(100)',
-              'field' => 'varchar(200)',
-              'preSelect' => 'text',
-            ),
-             'columnType' => 
-            array (
-              'tenant' => 'varchar(100)',
-              'field' => 'varchar(200)',
-              'preSelect' => 'text',
-            ),
-             'width' => 0,
-             'considerTenants' => true,
-             'multiPreSelect' => 'none',
-             'filterGroups' => 
-            array (
-              0 => 'string',
-            ),
-             'predefinedPreSelectOptions' => 
-            array (
-            ),
+             'width' => '',
+             'height' => '',
+             'maxLength' => NULL,
+             'showCharCount' => NULL,
+             'excludeFromSearchIndex' => false,
           )),
-          2 => 
+          1 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'name' => 'preSelect',
-             'title' => 'PreSelect',
+             'name' => 'tokenType',
+             'title' => 'tokenType',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => '',
+             'index' => false,
              'locked' => false,
              'style' => '',
-             'permissions' => '',
+             'permissions' => NULL,
              'datatype' => 'data',
              'fieldtype' => 'input',
              'relationType' => false,
@@ -139,9 +92,40 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'blockedVarsForExport' => 
             array (
             ),
-             'width' => 300,
+             'width' => NULL,
              'defaultValue' => NULL,
-             'columnLength' => '255',
+             'columnLength' => 190,
+             'regex' => '',
+             'regexFlags' => 
+            array (
+            ),
+             'unique' => NULL,
+             'showCharCount' => NULL,
+             'defaultValueGenerator' => '',
+          )),
+          2 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+             'name' => 'expiresAt',
+             'title' => 'expiresAt',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'datatype' => 'data',
+             'fieldtype' => 'input',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'width' => NULL,
+             'defaultValue' => NULL,
+             'columnLength' => 190,
              'regex' => '',
              'regexFlags' => 
             array (
@@ -151,16 +135,42 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'defaultValueGenerator' => '',
           )),
           3 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'name' => 'scriptPath',
-             'title' => 'Script Path',
+          Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+             'name' => 'refreshToken',
+             'title' => 'refreshToken',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => '',
+             'index' => false,
              'locked' => false,
              'style' => '',
-             'permissions' => '',
+             'permissions' => NULL,
+             'datatype' => 'data',
+             'fieldtype' => 'textarea',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'width' => '',
+             'height' => '',
+             'maxLength' => NULL,
+             'showCharCount' => NULL,
+             'excludeFromSearchIndex' => false,
+          )),
+          4 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+             'name' => 'scope',
+             'title' => 'scope',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
              'datatype' => 'data',
              'fieldtype' => 'input',
              'relationType' => false,
@@ -170,9 +180,9 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'blockedVarsForExport' => 
             array (
             ),
-             'width' => 300,
+             'width' => NULL,
              'defaultValue' => NULL,
-             'columnLength' => '255',
+             'columnLength' => 190,
              'regex' => '',
              'regexFlags' => 
             array (
@@ -187,9 +197,9 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
         array (
         ),
          'fieldtype' => 'panel',
-         'layout' => '',
+         'layout' => NULL,
          'border' => false,
-         'icon' => '',
+         'icon' => NULL,
          'labelWidth' => 100,
          'labelAlign' => 'left',
       )),
@@ -208,5 +218,13 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
    'generateTypeDeclarations' => true,
    'blockedVarsForExport' => 
   array (
+  ),
+   'classDefinitions' => 
+  array (
+    0 => 
+    array (
+      'classname' => 'SsoIdentity',
+      'fieldname' => 'credentials',
+    ),
   ),
 ));

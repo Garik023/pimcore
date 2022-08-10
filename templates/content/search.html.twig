@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h2>cotent search</h2>
+    <h1 class="mb-5">Search</h1>
 
     {% for i in pimcore_iterate_block(pimcore_block('contentblock')) %}
         <h2>{{ pimcore_input('subline') }}</h2>
