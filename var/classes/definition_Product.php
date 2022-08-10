@@ -9,6 +9,7 @@
  * - name [input]
  * - description [wysiwyg]
  * - picture [image]
+ * - category [manyToOneRelation]
  */
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
@@ -17,7 +18,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Product',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1659878460,
+   'modificationDate' => 1660051891,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -176,6 +177,46 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'width' => '',
              'height' => '',
              'uploadPath' => '',
+          )),
+          4 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
+             'name' => 'category',
+             'title' => 'Category',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'datatype' => 'data',
+             'fieldtype' => 'manyToOneRelation',
+             'relationType' => true,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'classes' => 
+            array (
+              0 => 
+              array (
+                'classes' => 'category',
+              ),
+            ),
+             'pathFormatterClass' => '',
+             'width' => '',
+             'assetUploadPath' => '',
+             'objectsAllowed' => true,
+             'assetsAllowed' => false,
+             'assetTypes' => 
+            array (
+            ),
+             'documentsAllowed' => false,
+             'documentTypes' => 
+            array (
+            ),
           )),
         ),
          'locked' => false,

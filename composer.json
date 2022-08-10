@@ -10,6 +10,9 @@
   "require": {
     "doctrine/annotations": "^1.13",
     "elasticsearch/elasticsearch": "^8.3",
+    "php-http/guzzle7-adapter": "^0.1.1",
+    "php-http/httplug-bundle": "^1",
+    "pimcore/customer-management-framework-bundle": "^3.3.0",
     "pimcore/pimcore": "^10.5"
   },
   "require-dev": {
