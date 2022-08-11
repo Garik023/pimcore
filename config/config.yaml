@@ -194,3 +194,112 @@ pimcore_ecommerce_framework:
                     factory_options:
                         baz: 4321
 
+    index_service:
+        # product index defines multiple tenants which can be disabled individually
+        # a tenant can define placeholders which will be replaced
+        tenants:
+            MyEsTenant:
+                config_options:
+                    client_config:
+                        logging: false
+                        indexName: 'ecommerce-demo-elasticsearch'
+
+                    es_client_params:
+                        hosts:
+#                            - '%host%'
+                        timeoutMs: 20000, # 20 seconds
+                        timeoutMsBackend: 120000 # 2 minutes
+
+                    index_settings:
+                        number_of_shards: 5
+                        number_of_replicas: 0
+                        max_ngram_diff: 30
+                        analysis:
+                            analyzer:
+                                my_ngram_analyzer:
+                                    tokenizer: my_ngram_tokenizer
+                                whitelist_analyzer:
+                                    tokenizer: standard
+                                    filter:
+                                        - white_list_filter
+                            tokenizer:
+                                my_ngram_tokenizer:
+                                    type: nGram
+                                    min_gram: 2
+                                    max_gram: 15
+                                    token_chars: [ letter, digit ]
+                            filter:
+                                white_list_filter:
+                                    type: keep
+                                    keep_words:
+                                        - was
+                                        -   WAS                '%%locale%%': nl
+            example_tenant:
+                attributes:
+                    rucksacksLoad:
+                        type: 'double'
+                        filter_group: double
+
+                        # a getter is a specific service responsible for getting the value from an object
+                        # this must be defined as service - as we use the class name as service id you can
+                        # just use the fully qualified class name. you can use your own getters if you define
+                        # them as service first
+                        getter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Getter\DefaultBrickGetter
+
+                        # options passed to the getter. available options vary by getter implementation - see
+                        # getter for available options
+                        getter_options:
+                            brickfield: specificAttributes
+                            bricktype: rucksackSpecs
+                            fieldname: load
+
+                        # an interpreter can further transform the value retrieved by the getter. same logic applies as
+                        # for getters - interpreter must be defined as service
+                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\Numeric
+
+                        # interpreter can define options which are passed to the interpreter when interpreting the value
+                        interpreter_options: { }
+    filter_service:
+        tenants:
+            default:
+                # assign backend implementations and views to filter type field collections
+                filter_types:
+
+                    # filter type for the FilterNumberRange field collection
+                    FilterNumberRange:
+                        # service id for filter type implementation
+                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\NumberRange
+                        # default template for filter, can be overwritten in filter definition
+                        template: ':Shop/filters:range.html.php'
+
+                    FilterNumberRangeSelection:
+                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\NumberRangeSelection
+                        template: ':Shop/filters:numberrange.html.php'
+
+                    FilterSelect:
+                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\Select
+                        template: ':Shop/filters:select.html.php'
+
+                    FilterSelectFromMultiSelect:
+                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\SelectFromMultiSelect
+                        template: ':Shop/filters:select.html.php'
+
+                    FilterMultiSelect:
+                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\MultiSelect
+                        template: ':Shop/filters:multiselect.html.php'
+
+                    FilterMultiSelectFromMultiSelect:
+                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\MultiSelectFromMultiSelect
+                        template: ':Shop/filters:multiselect.html.php'
+
+                    FilterMultiRelation:
+                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\MultiSelectRelation
+                        template: ':Shop/filters:multiselect-relation.html.php'
+
+                    FilterCategory:
+                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\SelectCategory
+                        template: ':Shop/filters:select_category.html.php'
+
+                    FilterRelation:
+                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\SelectRelation
+                        template: ':Shop/filters:object_relation.html.php'

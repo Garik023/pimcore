@@ -12,6 +12,7 @@
  * - name_2 [indexFieldSelectionField]
  * - category [manyToManyObjectRelation]
  * - filterDefinition [manyToOneRelation]
+ * - store [classificationstore]
  */
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
@@ -20,7 +21,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Product',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1660140299,
+   'modificationDate' => 1660225485,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -287,6 +288,53 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'documentTypes' => 
             array (
             ),
+          )),
+          7 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Classificationstore::__set_state(array(
+             'name' => 'store',
+             'title' => 'Store',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'datatype' => 'data',
+             'fieldtype' => 'classificationstore',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'children' => 
+            array (
+            ),
+             'region' => NULL,
+             'layout' => NULL,
+             'width' => 0,
+             'height' => 0,
+             'maxTabs' => NULL,
+             'labelWidth' => 0,
+             'localized' => false,
+             'storeId' => 1,
+             'hideEmptyData' => false,
+             'disallowAddRemove' => false,
+             'referencedFields' => 
+            array (
+            ),
+             'fieldDefinitionsCache' => NULL,
+             'allowedGroupIds' => 
+            array (
+            ),
+             'activeGroupDefinitions' => 
+            array (
+            ),
+             'maxItems' => NULL,
+             'permissionView' => NULL,
+             'permissionEdit' => NULL,
           )),
         ),
          'locked' => false,
