@@ -2,14 +2,34 @@
 {% block content %}
     <h1 class="mb-5">Product</h1>
 
+{#    <h1>{{ pimcore_input("headline").render()|raw }}</h1>#}
+{#    <div>#}
+{#        Setting XYZ: {{ pimcore_checkbox('myCheckbox') }}#}
+
+{#        {% if pimcore_checkbox('myCheckbox').isChecked() %}#}
+{#            <div>#}
+{#                {{ dump('do something') }}#}
+{#            </div>#}
+{#        {% endif %}#}
+{#    </div>#}
 
     <div class="">
         <div class="row d-flex ">
             <div class="col-3">
-                <p>fghjkl</p>
-                <p>fghjkl</p>
-                <p>fghjkl</p>
-                <p>fghjkl</p>
+                <form action="">
+                    <div>
+                        <h2>{{ categories[0].className }}</h2>
+                        {% for category in categories %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="category.name"
+                                       id="flexCheckChecked-{{ category.name }}">
+                                <label class="form-check-label" for="flexCheckChecked-{{ category.name }}">
+                                    {{ category.name }}
+                                </label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </form>
             </div>
             <div class="col-9">
                 <div class="product-info">
@@ -18,13 +38,14 @@
                     {% else %}
                         {% set product = pimcore_relation("products").element %}
                         {% if products %}
-                            {% for product in products  %}
+                            {% for product in products %}
                                 <h2>{{ product.name }}</h2>
                                 <div class="content">
                                     {% if product.picture %}
                                         {{ product.picture.thumbnail("product").html|raw }}
                                     {% endif %}
                                     {{ product.description|raw }}
+                                    {#                                    {{ product.relation|raw }} #}
                                 </div>
                             {% endfor %}
                         {% endif %}
@@ -33,7 +54,6 @@
             </div>
         </div>
     </div>
-
 
 
 {% endblock %}

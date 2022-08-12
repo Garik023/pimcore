@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Pimcore\Controller\FrontendController;
+use Pimcore\Model\DataObject\Category;
 use Pimcore\Model\DataObject\FilterDefinition;
 use Pimcore\Model\DataObject\Product;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,10 +21,12 @@ class ContentController extends FrontendController
         $products=new Product\Listing();
         $products=$products->getData();
 
+        $categories= new Category\Listing();
+        $categories= $categories->getData();
 
-        dd($products);
+//        dd($products,$categories);
 
-        return $this->render('content/product.html.twig',['products'=>$products]);
+        return $this->render('content/product.html.twig',['products'=>$products,'categories'=>$categories]);
     }
 
 
